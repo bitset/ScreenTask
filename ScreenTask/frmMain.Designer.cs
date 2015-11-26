@@ -332,7 +332,7 @@
             0,
             0});
             this.numShotEvery.Minimum = new decimal(new int[] {
-            100,
+            1,
             0,
             0,
             0});
