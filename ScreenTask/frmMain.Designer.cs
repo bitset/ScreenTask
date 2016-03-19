@@ -56,9 +56,12 @@
             this.lblMe = new System.Windows.Forms.Label();
             this.lblWebsite = new System.Windows.Forms.Label();
             this.lblGithub = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.numJpegQuality = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.imgPreview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPort)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numShotEvery)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numJpegQuality)).BeginInit();
             this.SuspendLayout();
             // 
             // gbOptions
@@ -134,7 +137,7 @@
             this.cbCaptureMouse.BackColor = System.Drawing.Color.Transparent;
             this.cbCaptureMouse.Location = new System.Drawing.Point(400, 155);
             this.cbCaptureMouse.Name = "cbCaptureMouse";
-            this.cbCaptureMouse.Size = new System.Drawing.Size(136, 17);
+            this.cbCaptureMouse.Size = new System.Drawing.Size(134, 17);
             this.cbCaptureMouse.TabIndex = 26;
             this.cbCaptureMouse.Text = "Capture Mouse Pointer";
             this.cbCaptureMouse.UseVisualStyleBackColor = false;
@@ -158,7 +161,7 @@
             this.btnStopServer.Enabled = false;
             this.btnStopServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStopServer.ForeColor = System.Drawing.Color.White;
-            this.btnStopServer.Location = new System.Drawing.Point(152, 196);
+            this.btnStopServer.Location = new System.Drawing.Point(11, 196);
             this.btnStopServer.Name = "btnStopServer";
             this.btnStopServer.Size = new System.Drawing.Size(130, 23);
             this.btnStopServer.TabIndex = 24;
@@ -173,7 +176,7 @@
             this.btnStartServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStartServer.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.btnStartServer.ForeColor = System.Drawing.Color.White;
-            this.btnStartServer.Location = new System.Drawing.Point(114, 192);
+            this.btnStartServer.Location = new System.Drawing.Point(6, 192);
             this.btnStartServer.Name = "btnStartServer";
             this.btnStartServer.Size = new System.Drawing.Size(202, 30);
             this.btnStartServer.TabIndex = 23;
@@ -207,7 +210,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(255, 159);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 13);
+            this.label4.Size = new System.Drawing.Size(62, 13);
             this.label4.TabIndex = 20;
             this.label4.Text = "Password : ";
             // 
@@ -217,7 +220,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(147, 159);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 13);
+            this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 19;
             this.label3.Text = "User : ";
             // 
@@ -227,7 +230,7 @@
             this.cbPrivate.BackColor = System.Drawing.Color.Transparent;
             this.cbPrivate.Location = new System.Drawing.Point(47, 158);
             this.cbPrivate.Name = "cbPrivate";
-            this.cbPrivate.Size = new System.Drawing.Size(88, 17);
+            this.cbPrivate.Size = new System.Drawing.Size(89, 17);
             this.cbPrivate.TabIndex = 18;
             this.cbPrivate.Text = "Private Task ";
             this.cbPrivate.UseVisualStyleBackColor = false;
@@ -261,7 +264,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(268, 90);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 16;
             this.label2.Text = "Port :";
             // 
@@ -280,7 +283,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(8, 118);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 14;
             this.label1.Text = "URL :";
             // 
@@ -290,7 +293,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Location = new System.Drawing.Point(11, 88);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(24, 13);
+            this.label5.Size = new System.Drawing.Size(23, 13);
             this.label5.TabIndex = 28;
             this.label5.Text = "IP :";
             // 
@@ -314,7 +317,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Location = new System.Drawing.Point(501, 118);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 13);
+            this.label6.Size = new System.Drawing.Size(63, 13);
             this.label6.TabIndex = 31;
             this.label6.Text = "Mellisecond";
             // 
@@ -332,7 +335,7 @@
             0,
             0});
             this.numShotEvery.Minimum = new decimal(new int[] {
-            1,
+            100,
             0,
             0,
             0});
@@ -379,6 +382,33 @@
             this.lblGithub.TabIndex = 34;
             this.lblGithub.Click += new System.EventHandler(this.lblGithub_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Location = new System.Drawing.Point(227, 204);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(73, 13);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "JPEG quality :";
+            // 
+            // numJpegQuality
+            // 
+            this.numJpegQuality.Location = new System.Drawing.Point(306, 202);
+            this.numJpegQuality.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numJpegQuality.Name = "numJpegQuality";
+            this.numJpegQuality.Size = new System.Drawing.Size(78, 20);
+            this.numJpegQuality.TabIndex = 36;
+            this.numJpegQuality.Value = new decimal(new int[] {
+            80,
+            0,
+            0,
+            0});
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,6 +416,8 @@
             this.BackgroundImage = global::ScreenTask.Properties.Resources.ScreenTaskBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(617, 410);
+            this.Controls.Add(this.numJpegQuality);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.imgPreview);
             this.Controls.Add(this.txtLog);
             this.Controls.Add(this.gbPreview);
@@ -423,6 +455,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgPreview)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPort)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numShotEvery)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numJpegQuality)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -457,6 +490,8 @@
         private System.Windows.Forms.Label lblMe;
         private System.Windows.Forms.Label lblWebsite;
         private System.Windows.Forms.Label lblGithub;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown numJpegQuality;
     }
 }
 

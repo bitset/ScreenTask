@@ -214,13 +214,31 @@ namespace ScreenTask
 
             }
         }
+
+        private static ImageCodecInfo GetEncoderInfo(String mimeType)
+        {
+            int j;
+            ImageCodecInfo[] encoders;
+            encoders = ImageCodecInfo.GetImageEncoders();
+            for (j = 0; j < encoders.Length; ++j)
+            {
+                if (encoders[j].MimeType == mimeType)
+                    return encoders[j];
+            }
+            return null;
+        }
+
         private void TakeScreenshot(bool captureMouse)
         {
             if (captureMouse)
             {
                 var bmp = ScreenCapturePInvoke.CaptureFullScreen(true);
                 rwl.AcquireWriterLock(Timeout.Infinite);
-                bmp.Save(Application.StartupPath + "/WebServer" + "/ScreenTask.jpg", ImageFormat.Jpeg);
+
+                EncoderParameters parameters = new EncoderParameters(1);
+                parameters.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, (int)numJpegQuality.Value);
+                bmp.Save(Application.StartupPath + "/WebServer" + "/ScreenTask.jpg", GetEncoderInfo("image/jpeg"), parameters);
+
                 rwl.ReleaseWriterLock();
                 if (isPreview)
                 {
@@ -238,7 +256,12 @@ namespace ScreenTask
                     g.CopyFromScreen(Point.Empty, Point.Empty, bounds.Size);
                 }
                 rwl.AcquireWriterLock(Timeout.Infinite);
-                bitmap.Save(Application.StartupPath + "/WebServer" + "/ScreenTask.jpg", ImageFormat.Jpeg);
+                ///bitmap.Save(Application.StartupPath + "/WebServer" + "/ScreenTask.jpg", ImageFormat.Jpeg);
+
+                EncoderParameters parameters = new EncoderParameters(1);
+                parameters.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, (int)numJpegQuality.Value);
+                bitmap.Save(Application.StartupPath + "/WebServer" + "/ScreenTask.jpg", GetEncoderInfo("image/jpeg"), parameters);
+
                 rwl.ReleaseWriterLock();
 
                 if (isPreview)
